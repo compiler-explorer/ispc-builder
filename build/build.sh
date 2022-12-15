@@ -5,7 +5,6 @@ set -exo pipefail
 ROOT=$PWD
 VERSION=$1
 
-BINUTILS_GCC_VERSION=9.2.0
 URL=https://github.com/ispc/ispc.git
 LLVM_VERSION=15.0
 
@@ -38,7 +37,7 @@ REF=refs/heads/${BRANCH}
 
 # determine build revision
 ISPC_REVISION=$(git ls-remote "${URL}" "${REF}" | cut -f 1)
-REVISION="ispc-${ISPC_REVISION}-gcc-${BINUTILS_GCC_VERSION}-llvm-${LLVM_VERSION}"
+REVISION="ispc-${ISPC_REVISION}-llvm-${LLVM_VERSION}"
 LAST_REVISION="${3}"
 
 echo "ce-build-revision:${REVISION}"
@@ -49,14 +48,8 @@ if [[ "${REVISION}" == "${LAST_REVISION}" ]]; then
   exit
 fi
 
-# Grab CE's GCC for its binutils
-mkdir -p /opt/compiler-explorer
-pushd /opt/compiler-explorer
-curl -sL https://s3.amazonaws.com/compiler-explorer/opt/gcc-${BINUTILS_GCC_VERSION}.tar.xz | tar Jxf -
-popd
-
 export LLVM_HOME=${ROOT}/llvm
-export ISPC_HOME=$(pwd)
+export ISPC_HOME=${ROOT}/ispc
 
 # Checkout
 git clone --depth 1 --single-branch -b "${BRANCH}" "${URL}" "${ISPC_HOME}"
