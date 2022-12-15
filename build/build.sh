@@ -55,7 +55,7 @@ export ISPC_HOME=${ROOT}/ispc
 git clone --depth 1 --single-branch -b "${BRANCH}" "${URL}" "${ISPC_HOME}"
 
 cd "${ISPC_HOME}"
-./alloy.py -b --version="${LLVM_VERSION}" --selfbuild --verbose
+./alloy.py -b --version="${LLVM_VERSION}" --verbose
 
 PATH=${LLVM_HOME}/bin-${LLVM_VERSION}/bin:${PATH}
 
@@ -63,7 +63,7 @@ BUILD_DIR=${ROOT}/build
 STAGING_DIR=${ROOT}/staging
 mkdir -p "${BUILD_DIR}"
 cd "${BUILD_DIR}"
-cmake .. -DX86_ENABLED=ON -DARM_ENABLED=ON
+cmake "${ISPC_HOME}" -DX86_ENABLED=ON -DARM_ENABLED=ON
 make -j"$(nproc)" install
 
 export XZ_DEFAULTS="-T 0"
