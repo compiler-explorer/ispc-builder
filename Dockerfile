@@ -4,11 +4,17 @@ MAINTAINER Matt Godbolt <matt@godbolt.org>
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update -y -q && apt upgrade -y -q && apt update -y -q && \
     apt install -y -q \
+    bison \
     build-essential \
     bzip2 \
     curl \
+    flex \
     git \
+    libc6-dev-arm64-cross \
+    libc6-dev-armhf-cross \
+    libc6-dev-i386-cross \
     linux-libc-dev \
+    m4 \
     make \
     python3 \
     unzip \
