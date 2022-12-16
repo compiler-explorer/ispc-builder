@@ -11,7 +11,7 @@ LLVM_VERSION=15.0
 case $VERSION in
 templates_new-trunk)
   URL=https://github.com/dbabokin/ispc.git
-  BRANCH=templates_nw
+  BRANCH=templates_new
   VERSION=$VERSION-$(date +%Y%m%d)
   ;;
 trunk)
