@@ -63,7 +63,10 @@ BUILD_DIR=${ROOT}/build
 STAGING_DIR=${ROOT}/staging
 mkdir -p "${BUILD_DIR}"
 cd "${BUILD_DIR}"
-cmake "${ISPC_HOME}" -DX86_ENABLED=ON -DARM_ENABLED=ON
+cmake "${ISPC_HOME}" -DX86_ENABLED=ON -DARM_ENABLED=ON \
+    -DCMAKE_BUILD_TYPE:STRING=Release \
+    -DCMAKE_INSTALL_PREFIX:PATH="${STAGING_DIR}"
+
 make -j"$(nproc)" install
 
 export XZ_DEFAULTS="-T 0"
