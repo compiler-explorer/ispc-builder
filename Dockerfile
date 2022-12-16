@@ -7,16 +7,20 @@ RUN apt update -y -q && apt upgrade -y -q && apt update -y -q && \
     bison \
     build-essential \
     bzip2 \
+    ca-certificates \
     curl \
     flex \
     git \
     libc6-dev-arm64-cross \
     libc6-dev-armhf-cross \
     libc6-dev-i386-cross \
+    libncurses-dev \
+    libtinfo-dev \
     linux-libc-dev \
     m4 \
     make \
     python3 \
+    python3-dev \
     unzip \
     xz-utils && \
     cd /tmp && \
