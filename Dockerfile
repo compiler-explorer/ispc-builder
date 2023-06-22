@@ -15,6 +15,7 @@ RUN apt update -y -q && apt upgrade -y -q && apt update -y -q && \
     libc6-dev-armhf-cross \
     libc6-dev-i386-cross \
     libncurses-dev \
+    libtbb-dev \
     libtinfo-dev \
     linux-libc-dev \
     m4 \
