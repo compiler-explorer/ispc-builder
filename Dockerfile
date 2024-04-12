@@ -20,6 +20,7 @@ RUN apt update -y -q && apt upgrade -y -q && apt update -y -q && \
     linux-libc-dev \
     m4 \
     make \
+    ninja-build \
     python3 \
     python3-dev \
     unzip \
@@ -32,8 +33,8 @@ RUN apt update -y -q && apt upgrade -y -q && apt update -y -q && \
 
 WORKDIR /root
 
-RUN curl -sL https://github.com/Kitware/CMake/releases/download/v3.18.0/cmake-3.18.0-Linux-x86_64.tar.gz | tar xzvf -
-RUN ln -s /root/cmake-3.18.0-Linux-x86_64/bin/cmake /bin/cmake
+RUN curl -sL https://github.com/Kitware/CMake/releases/download/v3.23.5/cmake-3.23.5-Linux-x86_64.tar.gz | tar xzvf -
+RUN ln -s /root/cmake-3.23.5-linux-x86_64/bin/cmake /bin/cmake
 
 RUN mkdir -p /root
 COPY build /root/
