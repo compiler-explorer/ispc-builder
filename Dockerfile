@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 MAINTAINER Matt Godbolt <matt@godbolt.org>
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -10,6 +10,7 @@ RUN apt update -y -q && apt upgrade -y -q && apt update -y -q && \
     ca-certificates \
     curl \
     flex \
+    gcc-multilib \
     git \
     libc6-dev-arm64-cross \
     libc6-dev-armhf-cross \
